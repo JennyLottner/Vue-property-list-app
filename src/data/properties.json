@@ -1,0 +1,63 @@
+[
+    {
+      "id": 1,
+      "name": "Cozy Beachfront House",
+      "price": 150,
+      "imgUrl": "https://images.unsplash.com/photo-1651024954895-8662577bf5ae?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTU4fHxiZWFjaCUyMGhvdXNlc3xlbnwwfHwwfHx8Mg%3D%3D"
+    },
+    {
+      "id": 2,
+      "name": "Modern City Apartment",
+      "price": 200,
+      "imgUrl": "https://images.unsplash.com/photo-1664159302000-cef53d678f4f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2l0eSUyMGxvZnR8ZW58MHx8MHx8fDI%3D"
+    },
+    {
+      "id": 3,
+      "name": "Log-House in the Hills",
+      "price": 500,
+      "imgUrl": "https://images.unsplash.com/photo-1571055107559-3e67626fa8be?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fGhvdXNlc3xlbnwwfHwwfHx8Mg%3D%3D"
+    },
+    {
+      "id": 4,
+      "name": "Sleek Downtown Condo",
+      "price": 250,
+      "imgUrl": "https://images.unsplash.com/photo-1580041065738-e72023775cdc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29uZG98ZW58MHx8MHx8fDI%3D"
+    },
+    {
+      "id": 5,
+      "name": "Spacious Suburban Home",
+      "price": 350,
+      "imgUrl": "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8aG91c2VzfGVufDB8fDB8fHwy"
+    },
+    {
+      "id": 6,
+      "name": "Luxury Villa",
+      "price": 400,
+      "imgUrl": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODd8fGhvdXNlc3xlbnwwfHwwfHx8Mg%3D%3D"
+    },
+    {
+      "id": 7,
+      "name": "Modern Loft in the City",
+      "price": 275,
+      "imgUrl": "https://images.unsplash.com/photo-1633119713175-c53c29479984?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fG1vZGVybiUyMGFwYXJ0bWVudHxlbnwwfHwwfHx8Mg%3D%3D"
+    },
+    {
+      "id": 8,
+      "name": "Contemporary Villa",
+      "price": 600,
+      "imgUrl": "https://images.unsplash.com/photo-1602343168117-bb8ffe3e2e9f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGhvdXNlc3xlbnwwfHwwfHx8Mg%3D%3D"
+    },
+    {
+      "id": 9,
+      "name": "Charming Countryside Cottage",
+      "price": 225,
+      "imgUrl": "https://images.unsplash.com/photo-1576941089067-2de3c901e126?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTB8fGhvdXNlc3xlbnwwfHwwfHx8Mg%3D%3D"
+    },
+    {
+      "id": 10,
+      "name": "Eco-Friendly Urban Home",
+      "price": 280,
+      "imgUrl": "https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fGhvdXNlc3xlbnwwfHwwfHx8Mg%3D%3D"
+    }
+  ]
+  
