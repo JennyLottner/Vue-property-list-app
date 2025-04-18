@@ -14,6 +14,7 @@
       @edit="onPropertyEditor"
       />
 
+      <EditModal />
     </main>
 
     <footer class="bg-gray-800 text-white text-center sticky bottom-0">
@@ -23,8 +24,9 @@
 </template>
 
 <script>
-import PropertyList from './components/PropertyList.vue'
 import { query, remove } from './services/property.service'
+import PropertyList from './components/PropertyList.vue'
+import EditModal from './components/EditModal.vue'
 
 export default {
   data() {
@@ -54,6 +56,7 @@ export default {
   },
   components: {
     PropertyList,
+    EditModal,
   }
 }
 </script>
