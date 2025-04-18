@@ -5,8 +5,15 @@
     </header>
 
     <main class="bg-gray-100 p-4 overflow-auto">
+
       <div v-if="isLoading"><p>Loading</p></div>
-      <PropertyList v-else :properties="properties" />
+
+      <PropertyList v-else 
+      :properties="properties"
+      @remove="onRemoveProperty"
+      @edit="onPropertyEditor"
+      />
+
     </main>
 
     <footer class="bg-gray-800 text-white text-center sticky bottom-0">
@@ -31,6 +38,13 @@ export default {
       this.isLoading = true
       this.properties = await query()
       this.isLoading = false
+    },
+    async onRemoveProperty(id) {
+      console.log('removing', id)
+    },
+    onPropertyEditor(id) {
+      if (!id ) console.log('adding property')
+      else console.log('editing', id)
     },
   },
   async mounted() {
