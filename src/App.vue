@@ -5,6 +5,7 @@
     </header>
 
     <main class="bg-gray-100 p-4 overflow-auto">
+      <button @click="onPropertyEditor(null)">Add property</button>
 
       <div v-if="isLoading"><p>Loading</p></div>
 
