@@ -24,7 +24,7 @@
 
 <script>
 import PropertyList from './components/PropertyList.vue'
-import { query } from './services/property.service'
+import { query, remove } from './services/property.service'
 
 export default {
   data() {
@@ -40,7 +40,8 @@ export default {
       this.isLoading = false
     },
     async onRemoveProperty(id) {
-      console.log('removing', id)
+      await remove(id)
+      await this.loadProperties()
     },
     onPropertyEditor(id) {
       if (!id ) console.log('adding property')
