@@ -1,13 +1,4 @@
 <template>
-  <div class="fixed inset-0 flex items-center justify-center">
-    <button
-      type="button"
-      @click="openModal"
-      class="rounded-md bg-black/20 px-4 py-2 text-sm font-medium text-white hover:bg-black/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75"
-    >
-      Open dialog
-    </button>
-  </div>
   <TransitionRoot appear :show="isOpen" as="template">
     <Dialog as="div" @close="closeModal" class="relative z-10">
       <TransitionChild
@@ -19,7 +10,7 @@
         leave-from="opacity-100"
         leave-to="opacity-0"
       >
-        <div class="fixed inset-0 bg-black/25" />
+        <div class="fixed inset-0 bg-black/25"></div>
       </TransitionChild>
 
       <div class="fixed inset-0 overflow-y-auto">
@@ -42,8 +33,9 @@
                 as="h3"
                 class="text-lg font-medium leading-6 text-gray-900"
               >
-                Payment successful
+                {{ id ? "Edit" : "Add" }} property
               </DialogTitle>
+
               <div class="mt-2">
                 <p class="text-sm text-gray-500">
                   Your payment has been successfully submitted. We’ve sent you
@@ -57,7 +49,7 @@
                   class="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                   @click="closeModal"
                 >
-                  Got it, thanks!
+                  Save
                 </button>
               </div>
             </DialogPanel>
@@ -67,8 +59,8 @@
     </Dialog>
   </TransitionRoot>
 </template>
-  
-<script>
+    
+  <script>
 import {
   TransitionRoot,
   TransitionChild,
@@ -76,20 +68,43 @@ import {
   DialogPanel,
   DialogTitle,
 } from '@headlessui/vue'
+import { save, getById, getEmptyProperty } from '../services/property.service'
 
 export default {
+  props: {
+    isOpen: { type: Boolean, required: true },
+    id: { type: Number, default: null },
+  },
   data() {
     return {
-      isOpen: false
+      propToEdit: null
     }
   },
   methods: {
     closeModal() {
-      this.isOpen = false
+      this.$emit('close')
     },
-    openModal() {
-      this.isOpen = true
+    async submitPropertyForm() {
+      await save(this.propToEdit)
+      this.closeModal()
     },
+    onFileChange(event) {
+      const file = event.target.files[0]
+      if (file) {
+        this.propToEdit.imgUrl = URL.createObjectURL(file)
+      }
+    },
+  },
+  watch: {
+    id: {
+      immediate: true,
+      async handler(newId) {
+        this.propToEdit = newId ? await getById(newId) : getEmptyProperty()
+      }
+    }
+  },
+  async mounted() {
+    this.propToEdit = this.id ? await getById(this.id) : getEmptyProperty()
   },
   components: {
     Dialog,
@@ -99,5 +114,5 @@ export default {
     TransitionChild
   },
 }
-</script>
-  
+  </script>
+    

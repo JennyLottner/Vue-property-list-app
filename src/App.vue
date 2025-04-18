@@ -9,13 +9,14 @@
 
       <div v-if="isLoading"><p>Loading</p></div>
 
-      <PropertyList v-else 
-      :properties="properties"
-      @remove="onRemoveProperty"
-      @edit="onPropertyEditor"
+      <PropertyList
+        v-else
+        :properties="properties"
+        @remove="onRemoveProperty"
+        @edit="onPropertyEditor"
       />
 
-      <EditModal />
+      <EditModal :isOpen="isOpen" :id="editedPropertyId" @close="closeModal" />
     </main>
 
     <footer class="bg-gray-800 text-white text-center sticky bottom-0">
@@ -25,15 +26,17 @@
 </template>
 
 <script>
-import { query, remove } from './services/property.service'
 import PropertyList from './components/PropertyList.vue'
 import EditModal from './components/EditModal.vue'
+import { query, remove } from './services/property.service'
 
 export default {
   data() {
     return {
       properties: [],
       isLoading: true,
+      isOpen: false,
+      editedPropertyId: null,
     }
   },
   methods: {
@@ -47,8 +50,16 @@ export default {
       await this.loadProperties()
     },
     onPropertyEditor(id) {
-      if (!id ) console.log('adding property')
-      else console.log('editing', id)
+      this.editedPropertyId = id
+      this.openModal()
+    },
+    closeModal() {
+      this.editedPropertyId = null
+      this.isOpen = false
+      this.loadProperties()
+    },
+    openModal() {
+      this.isOpen = true
     },
   },
   async mounted() {
