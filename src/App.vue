@@ -5,6 +5,8 @@
     </header>
 
     <main class="bg-gray-100 p-4 overflow-auto">
+      <div v-if="isLoading"><p>Loading</p></div>
+      <PropertyList v-else :properties="properties" />
     </main>
 
     <footer class="bg-gray-800 text-white text-center sticky bottom-0">
@@ -14,6 +16,31 @@
 </template>
 
 <script>
+import PropertyList from './components/PropertyList.vue'
+import { query } from './services/property.service'
+
+export default {
+  data() {
+    return {
+      properties: [],
+      isLoading: true,
+    }
+  },
+  methods: {
+    async loadProperties() {
+      this.isLoading = true
+      this.properties = await query()
+      this.isLoading = false
+    },
+  },
+  async mounted() {
+    this.properties = await query()
+    this.isLoading = false
+  },
+  components: {
+    PropertyList,
+  }
+}
 </script>
 
 <style scoped>
